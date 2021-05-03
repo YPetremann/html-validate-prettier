@@ -1,0 +1,41 @@
+{
+  "name": "html-validate-prettier",
+  "version": "1.0.0",
+  "description": "Run prettier as a html-validate rule",
+  "main": "dist/index.js",
+  "dependencies": {
+    "html-validate": "^4.10.1",
+    "line-column": "^1.0.2",
+    "prettier-linter-helpers": "^1.0.0",
+    "tslib": "^2.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.4",
+    "@types/line-column": "^1.0.0",
+    "@types/node": "^14.14.41",
+    "@types/prettier": "^2.2.3",
+    "@types/prettier-linter-helpers": "^1.0.0"
+  },
+  "scripts": {
+    "dev": "tsc --build src --watch",
+    "prebuild": "rm -rf dist || del dist",
+    "build": "tsc --build src",
+    "prepublishOnly": "npm test && npm run lint",
+    "prepare": "npm run build",
+    "preinstall": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/YPetremann/html-validate-prettier/issues/new"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YPetremann/html-validate-prettier"
+  },
+  "keywords": [
+    "prettier",
+    "html-validate"
+  ],
+  "author": "YPetremann <y.petremann@gmail.com>",
+  "license": "MIT"
+}
