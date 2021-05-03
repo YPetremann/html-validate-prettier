@@ -67,6 +67,7 @@ You can set Prettier's own options inside a `.prettierrc` file.
 ## Options
 
 There is no additionnal options as _html-validate-prettier will honor your `.prettierrc` file by default_.
+
 ---
 
 ## Contributing
