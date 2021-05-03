@@ -8,16 +8,17 @@ Given the input file `index.html`:
 
 <!-- prettier-ignore -->
 ```css
-<!doctype html {
-  display: block
-}
-
-.alter:after {color: red; content: 'example'}
-
-.delete {
-  display: block;;
-}
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Document</title>
+</head>
+<body>
+</body>
+</html>
 ```
 
 Running `./node_modules/.bin/stylelint style.css` shall output:
