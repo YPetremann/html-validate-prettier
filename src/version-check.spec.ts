@@ -13,7 +13,7 @@ it("should warn when using unsupported html-validate version", () => {
 	expect(log).toHaveBeenCalled();
 	expect(log.mock.calls[0][0]).toMatchInlineSnapshot(`
 		"-----------------------------------------------------------------------------------------------------
-		html-validate-vue requires html-validate version \\">= 2.1 || ^3.0\\" but current installed version is 1.2.3
+		html-validate-prettier requires html-validate version \\">= 2.1 || ^3.0\\" but current installed version is 1.2.3
 		This is not a supported configuration. Please install a supported version before reporting bugs.
 		-----------------------------------------------------------------------------------------------------"
 	`);
@@ -25,7 +25,7 @@ it("should warn when using html-validate without exposed version (pre 1.16)", ()
 	expect(log).toHaveBeenCalled();
 	expect(log.mock.calls[0][0]).toMatchInlineSnapshot(`
 		"-----------------------------------------------------------------------------------------------------
-		html-validate-vue requires html-validate version \\">= 2.1 || ^3.0\\" but current installed version is < 1.16.0
+		html-validate-prettier requires html-validate version \\">= 2.1 || ^3.0\\" but current installed version is < 1.16.0
 		This is not a supported configuration. Please install a supported version before reporting bugs.
 		-----------------------------------------------------------------------------------------------------"
 	`);
