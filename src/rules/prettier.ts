@@ -29,7 +29,7 @@ type Diff = {
   deleteText?: string,
   insertText?: string,
 }
-function getLocFromPrettierSyntaxError(lcf: any, filename: string, errloc: PrettierErrorLoc): HVLoc {
+function getLocFromPrettierSyntaxError(source: string, lcf: any, filename: string, errloc: PrettierErrorLoc): HVLoc {
   const { line, column } = errloc.start
   const offset = lcf.toIndex(line, column)
   const size = lcf.toIndex(errloc.end.line, errloc.end.column) - offset
@@ -41,10 +41,10 @@ function getLocFromPrettierSyntaxError(lcf: any, filename: string, errloc: Prett
     size,
   };
 }
-function getLocFromDifference(lcf: any, filename: string, diff: Diff): HVLoc {
-  const { offset } = diff
+function getLocFromDifference(source: string, lcf: any, filename: string, diff: Diff): HVLoc {
   const size = diff?.deleteText?.length || 0
-  const { line, col: column } = lcf.fromIndex(diff.offset)  
+  const offset = diff.offset < 0 ? 0 : diff.offset > source.length - 1 ? source.length - 1 : diff.offset;
+  const { line, col: column } = lcf.fromIndex(offset)
   return {
     filename,
     line,
@@ -124,7 +124,7 @@ export class Prettier extends Rule {
         if (err2.loc) {
           message = message.replace(/ \(\d+:\d+\)$/, '');
         }
-        const location = getLocFromPrettierSyntaxError(lcf, filename, err2.loc)
+        const location = getLocFromPrettierSyntaxError(source, lcf, filename, err2.loc)
         this.report(event.document.root,message, location)
         return;
 
@@ -134,7 +134,7 @@ export class Prettier extends Rule {
       }
       const differences = generateDifferences(source, prettierSource);
       differences.forEach((difference) => {
-        const location = getLocFromDifference(lcf, filename, difference)
+        const location = getLocFromDifference(source, lcf, filename, difference)
         switch (difference.operation) {
           case INSERT:
             this.report(
