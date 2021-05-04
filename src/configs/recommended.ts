@@ -1,9 +1,9 @@
-import { ConfigData } from "html-validate";
+import { ConfigData } from 'html-validate';
 
 const config: ConfigData = {
   rules: {
-    [`prettier/prettier`]: "error",
-  }
-}
+    [`prettier/prettier`]: 'error',
+  },
+};
 
-export default config
+export default config;

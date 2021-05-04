@@ -1,5 +1,5 @@
-import recommended from "./recommended";
+import recommended from './recommended';
 
 export default {
-  recommended
-}
+  recommended,
+};
