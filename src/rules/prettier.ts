@@ -1,8 +1,8 @@
+import fs from "fs";
 import { DOMReadyEvent, Rule, RuleDocumentation } from "html-validate";
-import fs from "fs"
-import prettier from "prettier"
-import lc from "line-column"
-import { showInvisibles, generateDifferences } from 'prettier-linter-helpers';
+import lc from "line-column";
+import prettier from "prettier";
+import { generateDifferences, showInvisibles } from 'prettier-linter-helpers';
 const {INSERT, DELETE, REPLACE} = generateDifferences;
 
 type PrettierErrorLoc = {
@@ -92,9 +92,8 @@ export class Prettier extends Rule {
           : {ignored: false, inferredParser: null};
 
       // Skip if file is ignored using a .prettierignore file
-      if (prettierFileInfo.ignored) {
-        return;
-      }
+      if (prettierFileInfo.ignored) return;
+      
       const initialOptions:any = {};
       if (filename == '<input>') {
         initialOptions.parser = 'html';

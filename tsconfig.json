@@ -1,11 +1,31 @@
 {
   "compilerOptions": {
-    "rootDir": ".",
-    "outDir": ".",
+    "alwaysStrict": true,
+    "declaration": true,
+    "lib": [
+      "es2019",
+      "es2020.promise",
+      "es2020.bigint",
+      "es2020.string"
+    ],
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "outDir": "./dist",
     "resolveJsonModule": true,
-    "composite": true
+    "sourceMap": true,
+    "rootDir": "./src",
+    "target": "es2019",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "importHelpers": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "files": [
-    "package.json"
+  "sourceMap": true,
+  "include": [
+    "./**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

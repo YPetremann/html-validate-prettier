@@ -2,29 +2,10 @@
   "name": "html-validate-prettier",
   "version": "1.0.0",
   "description": "Run prettier as a html-validate rule",
-  "main": "dist/index.js",
-  "dependencies": {
-    "html-validate": "^4.10.1",
-    "line-column": "^1.0.2",
-    "prettier-linter-helpers": "^1.0.0",
-    "tslib": "^2.2.0"
-  },
-  "devDependencies": {
-    "@types/line-column": "^1.0.0",
-    "@types/node": "^14.14.41",
-    "@types/prettier": "^2.2.3",
-    "@types/prettier-linter-helpers": "^1.0.0",
-    "typescript": "^4.2.4"
-  },
-  "scripts": {
-    "dev": "tsc --build src --watch",
-    "prebuild": "rm -rf dist || del dist",
-    "build": "tsc --build src",
-    "prepublishOnly": "npm test && npm run lint",
-    "prepare": "npm run build",
-    "preinstall": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "keywords": [
+    "prettier",
+    "html-validate"
+  ],
   "bugs": {
     "url": "https://github.com/YPetremann/html-validate-prettier/issues/new"
   },
@@ -32,10 +13,36 @@
     "type": "git",
     "url": "https://github.com/YPetremann/html-validate-prettier"
   },
-  "keywords": [
-    "prettier",
-    "html-validate"
-  ],
+  "license": "MIT",
   "author": "YPetremann <y.petremann@gmail.com>",
-  "license": "MIT"
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsc --build src --watch",
+    "prebuild": "rm -rf dist || del dist",
+    "build": "tsc --build .",
+    "prepublishOnly": "npm test",
+    "prepublish": "npm run build",
+    "lint": "eslint",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "@html-validate/jest-config"
+  },
+  "dependencies": {
+    "html-validate": "^4.10.1",
+    "line-column": "^1.0.2",
+    "prettier-linter-helpers": "^1.0.0",
+    "tslib": "^2.2.0"
+  },
+  "devDependencies": {
+    "@html-validate/jest-config": "^1.2.9",
+    "@types/jest": "^26.0.23",
+    "@types/line-column": "^1.0.0",
+    "@types/node": "^14.14.41",
+    "@types/prettier": "^2.2.3",
+    "@types/prettier-linter-helpers": "^1.0.0",
+    "jest": "^26.6.3",
+    "typescript": "^4.2.4"
+  }
 }
