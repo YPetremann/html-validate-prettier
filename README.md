@@ -7,7 +7,7 @@ Runs [Prettier](https://github.com/prettier/prettier) as a [Html-Validate](https
 Given the input file `index.html`:
 
 <!-- prettier-ignore -->
-```css
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +42,7 @@ index.html
 npm install --save-dev html-validate-prettier prettier
 ```
 
-**_`html-validate-prettier` does not install Prettier or Stylelint for you._** _You must install these yourself._
+**_`html-validate-prettier` does not install Prettier or Html-Validate for you._** _You must install these yourself._
 
 Then, in your `.htmlvalidate.json`:
 
