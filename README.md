@@ -21,7 +21,7 @@ Given the input file `index.html`:
 </html>
 ```
 
-Running `./node_modules/.bin/stylelint style.css` shall output:
+Running `npx html-validate style.css` shall output:
 
 ```
 index.html
