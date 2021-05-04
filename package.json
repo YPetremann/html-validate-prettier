@@ -23,14 +23,15 @@
   "types": "dist/index.d.ts",
   "repository": "github:YPetremann/html-validate-prettier",
   "scripts": {
-    "prebuild": "rm -rf dist || del dist",
-    "build": "tsc --build",
-    "eslint": "eslint .",
     "dev": "tsc --build --watch",
-    "prepublishOnly": "npm test && npm run lint",
+    "clean": "rm -rf dist || del dist",
+    "prebuild": "npm run clean",
+    "build": "tsc --build",
     "prepublish": "npm run build",
-    "lint": "npm run eslint",
-    "test": "jest"
+    "test": "jest",
+    "posttest": "npm run lint",
+    "lint": "eslint .",
+    "prepublishOnly": "npm test"
   },
   "dependencies": {
     "line-column": "^1.0.2",
