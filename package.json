@@ -6,33 +6,36 @@
     "prettier",
     "html-validate"
   ],
+  "homepage": "https://github.com/YPetremann/html-validate-prettier",
   "bugs": {
     "url": "https://github.com/YPetremann/html-validate-prettier/issues/new"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/YPetremann/html-validate-prettier"
-  },
   "license": "MIT",
   "author": "YPetremann <y.petremann@gmail.com>",
+  "funding": "https://paypal.me/ypetremann",
+  "files": [
+    "dist",
+    "!**/*.spec.d.ts",
+    "!**/*.spec.js",
+    "!**/*.spec.js.map"
+  ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": "github:YPetremann/html-validate-prettier",
   "scripts": {
-    "dev": "tsc --build src --watch",
     "prebuild": "rm -rf dist || del dist",
-    "build": "tsc --build .",
-    "prepublishOnly": "npm test",
+    "build": "tsc --build",
+    "eslint": "eslint .",
+    "dev": "tsc --build src --watch",
+    "prepublishOnly": "npm test && npm run lint",
     "prepublish": "npm run build",
-    "lint": "eslint",
+    "lint": "npm run eslint",
     "test": "jest"
   },
-  "jest": {
-    "preset": "@html-validate/jest-config"
-  },
   "dependencies": {
-    "html-validate": "^4.10.1",
     "line-column": "^1.0.2",
     "prettier-linter-helpers": "^1.0.0",
+    "semver": "^7.0.0",
     "tslib": "^2.2.0"
   },
   "devDependencies": {
@@ -42,7 +45,18 @@
     "@types/node": "^14.14.41",
     "@types/prettier": "^2.2.3",
     "@types/prettier-linter-helpers": "^1.0.0",
+    "@types/semver": "7.3.5",
     "jest": "^26.6.3",
     "typescript": "^4.2.4"
+  },
+  "peerDependencies": {
+    "html-validate": ">= 2.17.0",
+    "prettier": ">= 0.11.0"
+  },
+  "engines": {
+    "node": ">= 12.0"
+  },
+  "jest": {
+    "preset": "@html-validate/jest-config"
   }
 }
