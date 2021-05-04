@@ -1,10 +1,13 @@
-import { Plugin } from "html-validate"
-import configs from "./configs/index"
-import rules from "./rules/index"
+import { Plugin } from "html-validate";
+import configs from "./configs/index";
+import rules from "./rules/index";
+import versionCheck from "./version-check";
 
-const name = "prettier"
+versionCheck();
 
-const plugin:Plugin = {
+const {name } = require("../package.json");
+
+const plugin: Plugin = {
   name,
   configs,
   rules,
